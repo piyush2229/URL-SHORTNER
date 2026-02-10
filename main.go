@@ -174,12 +174,14 @@ func main() {
 		}()
 	}
 
-	fmt.Println("URL Shortener running on :3000")
+	port := loadEnvOrDefault("PORT", "3000")
+	addr := ":" + port
+	fmt.Println("URL Shortener running on", addr)
 
 	http.HandleFunc("/shorten", handleShorten)
 	http.HandleFunc("/", handleRedirect)
 
-	err = http.ListenAndServe(":3000", nil)
+	err = http.ListenAndServe(addr, nil)
 	if err != nil {
 		fmt.Println("Server error:", err)
 	}
