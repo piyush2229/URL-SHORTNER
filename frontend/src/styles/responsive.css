@@ -1,0 +1,10 @@
+@media (max-width: 600px) {
+  .card {
+    padding: 15px;
+  }
+
+  .input {
+    font-size: 14px;
+    width: 90%;
+  }
+}
